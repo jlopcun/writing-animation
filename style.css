@@ -1,0 +1,72 @@
+*,*::after,*::before{
+    box-sizing: border-box;
+}
+
+/* Estilos comunes */
+body{
+    background-color: #333;
+}
+.container{
+    margin:10rem 5rem;
+    color:#fff;
+    position:relative;
+    width:200px;
+    overflow:hidden;
+}
+.iam,.name{
+    font-family:sans-serif;
+}
+
+/* Estilos individuales */
+.name{
+    margin-left:20px;
+    position:relative;
+    bottom:0;
+    width:100%;
+    font-size:30px;
+    letter-spacing:10px;
+    
+}
+.name::after{
+    content:'';
+    display:inline-block;
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+    background-color: #333;
+    animation:writing 5s infinite alternate steps(15) 3s;
+    animation-play-state:running;
+    transform-origin:right;
+    transition-delay:3s;
+}
+.name::before{
+    content:"";
+    height:100%;
+    width:3px;
+    background-color: #f0a;
+    position:absolute;
+    left:-3.7px;
+    z-index:2;
+    animation:writing2 5s infinite alternate steps(15) 3s,parpadeo .5s infinite;
+
+}
+
+
+@keyframes writing{
+   to{
+       left:100%;
+   }
+   
+}
+@keyframes writing2 {
+    to{
+        left:100%;
+    }
+}
+
+@keyframes parpadeo {
+    0%{opacity:1}
+    100%{opacity:.3}
+} 
